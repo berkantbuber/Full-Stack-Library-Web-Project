@@ -1,0 +1,25 @@
+﻿@model BenimKutuphane.Models.Entity.TabloDuyuru
+@{
+    ViewBag.Title = "YeniDuyuru";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Yeni Duyuru</h2>
+
+<form class="form-group" method="post">
+    <div style="margin-top:15px">
+        <label>Duyuru Kategorisi</label>
+        @Html.TextBoxFor(x => x.DuyuruKategori, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Duyuru İçeriği</label>
+        @Html.TextAreaFor(x => x.DuyuruIcerik, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Duyuru Tarihi</label>
+        @Html.TextBoxFor(x => x.DuyuruTarih, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Duyuru Ekle</button>
+    </div>
+</form>

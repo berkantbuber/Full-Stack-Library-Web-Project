@@ -1,0 +1,42 @@
+﻿@model BenimKutuphane.Models.Entity.TabloUyeler
+@{
+    ViewBag.Title = "UyeGetir";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("UyeGuncelle", "Uyeler", FormMethod.Post))
+{
+    <div style="margin-top:15px"></div>
+    <div class="form-group">
+        @Html.LabelFor(u => u.ID)
+        @Html.TextBoxFor(u => u.ID, new { @class = "form-control" })
+        <br />
+        <label>ÜYE ADI</label>
+        @Html.TextBoxFor(u => u.Ad, new { @class = "form-control" })
+        <br />
+        <label>ÜYE SOYADI</label>
+        @Html.TextBoxFor(u => u.Soyad, new { @class = "form-control" })
+        <br />
+        <label>MAİL ADRESİ</label>
+        @Html.TextBoxFor(u => u.Mail, new { @class = "form-control" })
+        <br />
+        <label>KULLANICI ADI</label>
+        @Html.TextBoxFor(u => u.KullaniciAdi, new { @class = "form-control" })
+        <br />
+        <label>ŞİFRE</label>
+        @Html.TextBoxFor(u => u.Sifre, new { @class = "form-control" })
+        <br />
+        <label>FOTOĞRAF URL</label>
+        @Html.TextBoxFor(u => u.Fotograf, new { @class = "form-control" })
+        <br />
+        <label>TELEFON</label>
+        @Html.TextBoxFor(u => u.Telefon, new { @class = "form-control" })
+
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-success">Üye Bilgisini Güncelle</button>
+    </div>
+}
+
+
+

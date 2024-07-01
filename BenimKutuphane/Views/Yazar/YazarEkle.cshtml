@@ -1,0 +1,27 @@
+﻿@model BenimKutuphane.Models.Entity.TabloYazar
+@{
+    ViewBag.Title = "YazarEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div></div>
+    <div style="margin-top:15px">
+        <b>Yazar Adı</b>
+        @Html.TextBoxFor(y => y.Ad, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <b>Yazar Soyadı</b>
+        @Html.TextBoxFor(y => y.Soyad, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <b>Yazar Detayı</b>
+        @Html.TextAreaFor(y => y.Detay, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info"> Yeni Yazar Ekle</button>
+    </div>
+</form>
+
+
+

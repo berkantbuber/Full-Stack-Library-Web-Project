@@ -1,0 +1,34 @@
+﻿@model BenimKutuphane.Models.Entity.TabloKitap
+@{
+    ViewBag.Title = "KitapGetir";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("KitapGuncelle", "Kitap", FormMethod.Post))
+{
+    <div style="margin-top:15px"></div>
+    <div class="form-group">
+        <b>Kitap ID</b>
+        @Html.TextBoxFor(k => k.ID, new { @class = "form-control" })
+        <br />
+        <b>Kitap Adı</b>
+        @Html.TextBoxFor(k => k.Ad, new { @class = "form-control" })
+        <br />
+        <b>Kitap Kategorisi</b>
+        @Html.DropDownListFor(k => k.TabloKategori.ID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+        <br />
+        <b>Kitabın Yazar</b>
+        @Html.DropDownListFor(k => k.TabloYazar.ID, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+        <br />
+        <b>Kitabın Basıl Yılı</b>
+        @Html.TextBoxFor(k => k.BasimYili, new { @class = "form-control" })
+        <br />
+        <b>Kitabın Yayınevi</b>
+        @Html.TextBoxFor(k => k.YayinEvi, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-success">Kitap Bilgilerini Güncelle</button>
+        <input type="hidden" name="KitapDurum" value="True" />
+    </div>
+}
+

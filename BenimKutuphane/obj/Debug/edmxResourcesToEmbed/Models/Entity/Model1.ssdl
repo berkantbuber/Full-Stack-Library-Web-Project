@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBKUTUPHANEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TabloCezalar">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Uye" Type="int" />
+    <Property Name="BaslangicTarih" Type="smalldatetime" />
+    <Property Name="BitisTarih" Type="smalldatetime" />
+    <Property Name="Para" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Hareket" Type="int" />
+  </EntityType>
+  <EntityType Name="TabloDuyuru">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DuyuruKategori" Type="varchar" MaxLength="50" />
+    <Property Name="DuyuruIcerik" Type="varchar" MaxLength="200" />
+    <Property Name="DuyuruTarih" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TabloHakkımızda">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Aciklama" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="TabloHareket">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Kitap" Type="int" />
+    <Property Name="Uye" Type="int" />
+    <Property Name="Personel" Type="int" />
+    <Property Name="AlisTarihi" Type="smalldatetime" />
+    <Property Name="IadeTarih" Type="smalldatetime" />
+    <Property Name="GetirdigiTarih" Type="smalldatetime" />
+    <Property Name="IslemDurum" Type="bit" />
+  </EntityType>
+  <EntityType Name="Tabloİletisim">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdSoyad" Type="varchar" MaxLength="50" />
+    <Property Name="MailAdresi" Type="varchar" MaxLength="50" />
+    <Property Name="Konu" Type="varchar" MaxLength="100" />
+    <Property Name="Mesaj" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="TabloKasa">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ay" Type="varchar" MaxLength="20" />
+    <Property Name="Tutar" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="TabloKategori">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TabloKitap">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="varchar" MaxLength="50" />
+    <Property Name="Kategori" Type="tinyint" />
+    <Property Name="Yazar" Type="int" />
+    <Property Name="BasimYili" Type="char" MaxLength="4" />
+    <Property Name="YayinEvi" Type="varchar" MaxLength="50" />
+    <Property Name="KitapDurum" Type="bit" />
+    <Property Name="KitapResim" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="TabloMesajlar">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Gonderen" Type="varchar" MaxLength="50" />
+    <Property Name="Alici" Type="varchar" MaxLength="50" />
+    <Property Name="Konu" Type="varchar" MaxLength="50" />
+    <Property Name="Icerik" Type="varchar" MaxLength="500" />
+    <Property Name="Tarih" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="TabloPersonel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonelAdSoyad" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TabloUyeler">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="varchar" MaxLength="30" />
+    <Property Name="Soyad" Type="varchar" MaxLength="30" />
+    <Property Name="Mail" Type="varchar" MaxLength="50" />
+    <Property Name="KullaniciAdi" Type="varchar" MaxLength="20" />
+    <Property Name="Sifre" Type="varchar" MaxLength="20" />
+    <Property Name="Fotograf" Type="varchar" MaxLength="250" />
+    <Property Name="Telefon" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="TabloYazar">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="varchar" MaxLength="50" />
+    <Property Name="Soyad" Type="varchar" MaxLength="50" />
+    <Property Name="Detay" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <Association Name="FK_TabloCezalar_TabloHareket">
+    <End Role="TabloHareket" Type="Self.TabloHareket" Multiplicity="0..1" />
+    <End Role="TabloCezalar" Type="Self.TabloCezalar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TabloHareket">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TabloCezalar">
+        <PropertyRef Name="Hareket" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TabloCezalar_TabloUyeler">
+    <End Role="TabloUyeler" Type="Self.TabloUyeler" Multiplicity="0..1" />
+    <End Role="TabloCezalar" Type="Self.TabloCezalar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TabloUyeler">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TabloCezalar">
+        <PropertyRef Name="Uye" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TabloHareket_TabloKitap">
+    <End Role="TabloKitap" Type="Self.TabloKitap" Multiplicity="0..1" />
+    <End Role="TabloHareket" Type="Self.TabloHareket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TabloKitap">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TabloHareket">
+        <PropertyRef Name="Kitap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TabloHareket_TabloPersonel">
+    <End Role="TabloPersonel" Type="Self.TabloPersonel" Multiplicity="0..1" />
+    <End Role="TabloHareket" Type="Self.TabloHareket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TabloPersonel">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TabloHareket">
+        <PropertyRef Name="Personel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TabloHareket_TabloUyeler">
+    <End Role="TabloUyeler" Type="Self.TabloUyeler" Multiplicity="0..1" />
+    <End Role="TabloHareket" Type="Self.TabloHareket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TabloUyeler">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TabloHareket">
+        <PropertyRef Name="Uye" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TabloKitap_TabloKategori">
+    <End Role="TabloKategori" Type="Self.TabloKategori" Multiplicity="0..1" />
+    <End Role="TabloKitap" Type="Self.TabloKitap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TabloKategori">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TabloKitap">
+        <PropertyRef Name="Kategori" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TabloKitap_TabloYazar">
+    <End Role="TabloYazar" Type="Self.TabloYazar" Multiplicity="0..1" />
+    <End Role="TabloKitap" Type="Self.TabloKitap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TabloYazar">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TabloKitap">
+        <PropertyRef Name="Yazar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBKUTUPHANEModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TabloCezalar" EntityType="Self.TabloCezalar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TabloDuyuru" EntityType="Self.TabloDuyuru" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TabloHakkımızda" EntityType="Self.TabloHakkımızda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TabloHareket" EntityType="Self.TabloHareket" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tabloİletisim" EntityType="Self.Tabloİletisim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TabloKasa" EntityType="Self.TabloKasa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TabloKategori" EntityType="Self.TabloKategori" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TabloKitap" EntityType="Self.TabloKitap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TabloMesajlar" EntityType="Self.TabloMesajlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TabloPersonel" EntityType="Self.TabloPersonel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TabloUyeler" EntityType="Self.TabloUyeler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TabloYazar" EntityType="Self.TabloYazar" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_TabloCezalar_TabloHareket" Association="Self.FK_TabloCezalar_TabloHareket">
+      <End Role="TabloHareket" EntitySet="TabloHareket" />
+      <End Role="TabloCezalar" EntitySet="TabloCezalar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TabloCezalar_TabloUyeler" Association="Self.FK_TabloCezalar_TabloUyeler">
+      <End Role="TabloUyeler" EntitySet="TabloUyeler" />
+      <End Role="TabloCezalar" EntitySet="TabloCezalar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TabloHareket_TabloKitap" Association="Self.FK_TabloHareket_TabloKitap">
+      <End Role="TabloKitap" EntitySet="TabloKitap" />
+      <End Role="TabloHareket" EntitySet="TabloHareket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TabloHareket_TabloPersonel" Association="Self.FK_TabloHareket_TabloPersonel">
+      <End Role="TabloPersonel" EntitySet="TabloPersonel" />
+      <End Role="TabloHareket" EntitySet="TabloHareket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TabloHareket_TabloUyeler" Association="Self.FK_TabloHareket_TabloUyeler">
+      <End Role="TabloUyeler" EntitySet="TabloUyeler" />
+      <End Role="TabloHareket" EntitySet="TabloHareket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TabloKitap_TabloKategori" Association="Self.FK_TabloKitap_TabloKategori">
+      <End Role="TabloKategori" EntitySet="TabloKategori" />
+      <End Role="TabloKitap" EntitySet="TabloKitap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TabloKitap_TabloYazar" Association="Self.FK_TabloKitap_TabloYazar">
+      <End Role="TabloYazar" EntitySet="TabloYazar" />
+      <End Role="TabloKitap" EntitySet="TabloKitap" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

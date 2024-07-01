@@ -1,0 +1,49 @@
+﻿@model BenimKutuphane.Models.Entity.TabloUyeler
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPanelim.cshtml";
+}
+
+<h2>Kullanıcı Bilgilerim</h2>
+
+
+@using (Html.BeginForm("Index2", "Panelim", FormMethod.Post))
+{
+    <table class="table table-hover" style="margin-top:25px">
+        <tr>
+            <td>
+                @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(x => x.Soyad, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label style="font-weight:bold">Mail Adresi : </label> @HttpContext.Current.User.Identity.Name
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(x => x.KullaniciAdi, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(x => x.Sifre, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(x => x.Fotograf, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button class="btn btn-warning">Bilgilerimi Güncelle</button>
+            </td>
+        </tr>
+    </table>
+}

@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBKUTUPHANEModelStoreContainer" CdmEntityContainer="DBKUTUPHANEEntities1">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="DBKUTUPHANEModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TabloCezalar">
+      <EntityTypeMapping TypeName="DBKUTUPHANEModel.TabloCezalar">
+        <MappingFragment StoreEntitySet="TabloCezalar">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Uye" ColumnName="Uye" />
+          <ScalarProperty Name="BaslangicTarih" ColumnName="BaslangicTarih" />
+          <ScalarProperty Name="BitisTarih" ColumnName="BitisTarih" />
+          <ScalarProperty Name="Para" ColumnName="Para" />
+          <ScalarProperty Name="Hareket" ColumnName="Hareket" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TabloHareket">
+      <EntityTypeMapping TypeName="DBKUTUPHANEModel.TabloHareket">
+        <MappingFragment StoreEntitySet="TabloHareket">
+          <ScalarProperty Name="GetirdigiTarih" ColumnName="GetirdigiTarih" />
+          <ScalarProperty Name="IslemDurum" ColumnName="IslemDurum" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Kitap" ColumnName="Kitap" />
+          <ScalarProperty Name="Uye" ColumnName="Uye" />
+          <ScalarProperty Name="Personel" ColumnName="Personel" />
+          <ScalarProperty Name="AlisTarihi" ColumnName="AlisTarihi" />
+          <ScalarProperty Name="IadeTarih" ColumnName="IadeTarih" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TabloKasa">
+      <EntityTypeMapping TypeName="DBKUTUPHANEModel.TabloKasa">
+        <MappingFragment StoreEntitySet="TabloKasa">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Ay" ColumnName="Ay" />
+          <ScalarProperty Name="Tutar" ColumnName="Tutar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TabloKategori">
+      <EntityTypeMapping TypeName="DBKUTUPHANEModel.TabloKategori">
+        <MappingFragment StoreEntitySet="TabloKategori">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TabloKitap">
+      <EntityTypeMapping TypeName="DBKUTUPHANEModel.TabloKitap">
+        <MappingFragment StoreEntitySet="TabloKitap">
+          <ScalarProperty Name="KitapResim" ColumnName="KitapResim" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Kategori" ColumnName="Kategori" />
+          <ScalarProperty Name="Yazar" ColumnName="Yazar" />
+          <ScalarProperty Name="BasimYili" ColumnName="BasimYili" />
+          <ScalarProperty Name="YayinEvi" ColumnName="YayinEvi" />
+          <ScalarProperty Name="KitapDurum" ColumnName="KitapDurum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TabloPersonel">
+      <EntityTypeMapping TypeName="DBKUTUPHANEModel.TabloPersonel">
+        <MappingFragment StoreEntitySet="TabloPersonel">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PersonelAdSoyad" ColumnName="PersonelAdSoyad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TabloUyeler">
+      <EntityTypeMapping TypeName="DBKUTUPHANEModel.TabloUyeler">
+        <MappingFragment StoreEntitySet="TabloUyeler">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+          <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+          <ScalarProperty Name="Fotograf" ColumnName="Fotograf" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TabloYazar">
+      <EntityTypeMapping TypeName="DBKUTUPHANEModel.TabloYazar">
+        <MappingFragment StoreEntitySet="TabloYazar">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+          <ScalarProperty Name="Detay" ColumnName="Detay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TabloHakkımızda">
+      <EntityTypeMapping TypeName="DBKUTUPHANEModel.TabloHakkımızda">
+        <MappingFragment StoreEntitySet="TabloHakkımızda">
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tabloİletisim">
+      <EntityTypeMapping TypeName="DBKUTUPHANEModel.Tabloİletisim">
+        <MappingFragment StoreEntitySet="Tabloİletisim">
+          <ScalarProperty Name="Mesaj" ColumnName="Mesaj" />
+          <ScalarProperty Name="Konu" ColumnName="Konu" />
+          <ScalarProperty Name="MailAdresi" ColumnName="MailAdresi" />
+          <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TabloMesajlar">
+      <EntityTypeMapping TypeName="DBKUTUPHANEModel.TabloMesajlar">
+        <MappingFragment StoreEntitySet="TabloMesajlar">
+          <ScalarProperty Name="Gonderen" ColumnName="Gonderen" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="Icerik" ColumnName="Icerik" />
+          <ScalarProperty Name="Konu" ColumnName="Konu" />
+          <ScalarProperty Name="Alici" ColumnName="Alici" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TabloDuyuru">
+      <EntityTypeMapping TypeName="DBKUTUPHANEModel.TabloDuyuru">
+        <MappingFragment StoreEntitySet="TabloDuyuru">
+          <ScalarProperty Name="DuyuruTarih" ColumnName="DuyuruTarih" />
+          <ScalarProperty Name="DuyuruIcerik" ColumnName="DuyuruIcerik" />
+          <ScalarProperty Name="DuyuruKategori" ColumnName="DuyuruKategori" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

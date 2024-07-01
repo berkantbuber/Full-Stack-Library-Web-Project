@@ -1,0 +1,28 @@
+﻿@model BenimKutuphane.Models.Entity.TabloDuyuru
+@{
+    ViewBag.Title = "DuyuruDetay";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("DuyuruGuncelle", "Duyurular", FormMethod.Post))
+{
+    <div style="margin-top:15px"></div>
+    <div class="form-group">
+        @Html.LabelFor(p => p.ID)
+        @Html.TextBoxFor(p => p.ID, new { @class = "form-control" })
+        <br />
+        <label>Duyuru Kategorisi</label>
+        @Html.TextBoxFor(p => p.DuyuruKategori, new { @class = "form-control" })
+        <br />
+        <label>Duyuru İçeriği</label>
+        @Html.TextAreaFor(p => p.DuyuruIcerik, new { @class = "form-control" })
+        <br />
+        <label>Duyuru Tarihi</label>
+        @Html.TextBoxFor(p => p.DuyuruTarih, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-success">Güncelle</button>
+    </div>
+}
+

@@ -1,0 +1,46 @@
+﻿@using BenimKutuphane.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<TabloUyeler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2 style="margin-top:15px">Üyeler</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ÜYE ID</th>
+        <th>ÜYE ADI</th>
+        <th>ÜYE SOYADI</th>
+        <th>MAİL ADRESİ</th>
+        <th>TELEFON</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+        <th>KİTAP GEÇMİŞİ</th>
+    </tr>
+    @foreach (var uye in Model)
+    {
+        <tr>
+            <td>@uye.ID</td>
+            <td>@uye.Ad</td>
+            <td>@uye.Soyad</td>
+            <td>@uye.Mail</td>
+            <td>@uye.Telefon</td>
+            <td><a href="/Uyeler/UyeSil/@uye.ID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Uyeler/UyeGetir/@uye.ID" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Uyeler/UyeKitapGecmisi/@uye.ID" class="btn btn-warning">Kitap Geçmişi</a></td>
+        </tr>
+    }
+</table>
+
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    { "page-link" }
+})
+
+
+<a href="/Uyeler/UyeEkle/" class="btn btn-primary">Yeni Üye Ekle</a>
+

@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBKUTUPHANEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TabloCezalar">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Uye" Type="Int32" />
+    <Property Name="BaslangicTarih" Type="DateTime" Precision="0" />
+    <Property Name="BitisTarih" Type="DateTime" Precision="0" />
+    <Property Name="Para" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Hareket" Type="Int32" />
+    <NavigationProperty Name="TabloHareket" Relationship="Self.FK_TabloCezalar_TabloHareket" FromRole="TabloCezalar" ToRole="TabloHareket" />
+    <NavigationProperty Name="TabloUyeler" Relationship="Self.FK_TabloCezalar_TabloUyeler" FromRole="TabloCezalar" ToRole="TabloUyeler" />
+  </EntityType>
+  <EntityType Name="TabloHareket">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Kitap" Type="Int32" />
+    <Property Name="Uye" Type="Int32" />
+    <Property Name="Personel" Type="Int32" />
+    <Property Name="AlisTarihi" Type="DateTime" Precision="0" />
+    <Property Name="IadeTarih" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="TabloCezalar" Relationship="Self.FK_TabloCezalar_TabloHareket" FromRole="TabloHareket" ToRole="TabloCezalar" />
+    <NavigationProperty Name="TabloKitap" Relationship="Self.FK_TabloHareket_TabloKitap" FromRole="TabloHareket" ToRole="TabloKitap" />
+    <NavigationProperty Name="TabloUyeler" Relationship="Self.FK_TabloHareket_TabloUyeler" FromRole="TabloHareket" ToRole="TabloUyeler" />
+    <NavigationProperty Name="TabloPersonel" Relationship="DBKUTUPHANEModel.FK_TabloHareket_TabloPersonel" FromRole="TabloHareket" ToRole="TabloPersonel" />
+    <Property Name="IslemDurum" Type="Boolean" />
+    <Property Name="GetirdigiTarih" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="TabloKasa">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ay" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Tutar" Type="Decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="TabloKategori">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TabloKitap" Relationship="Self.FK_TabloKitap_TabloKategori" FromRole="TabloKategori" ToRole="TabloKitap" />
+  </EntityType>
+  <EntityType Name="TabloKitap">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Kategori" Type="Byte" />
+    <Property Name="Yazar" Type="Int32" />
+    <Property Name="BasimYili" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="YayinEvi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KitapDurum" Type="Boolean" />
+    <NavigationProperty Name="TabloHareket" Relationship="Self.FK_TabloHareket_TabloKitap" FromRole="TabloKitap" ToRole="TabloHareket" />
+    <NavigationProperty Name="TabloKategori" Relationship="Self.FK_TabloKitap_TabloKategori" FromRole="TabloKitap" ToRole="TabloKategori" />
+    <NavigationProperty Name="TabloYazar" Relationship="Self.FK_TabloKitap_TabloYazar" FromRole="TabloKitap" ToRole="TabloYazar" />
+    <Property Name="KitapResim" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TabloPersonel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonelAdSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TabloHareket" Relationship="DBKUTUPHANEModel.FK_TabloHareket_TabloPersonel" FromRole="TabloPersonel" ToRole="TabloHareket" />
+  </EntityType>
+  <EntityType Name="TabloUyeler">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Soyad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KullaniciAdi" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Sifre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Fotograf" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TabloCezalar" Relationship="Self.FK_TabloCezalar_TabloUyeler" FromRole="TabloUyeler" ToRole="TabloCezalar" />
+    <NavigationProperty Name="TabloHareket" Relationship="Self.FK_TabloHareket_TabloUyeler" FromRole="TabloUyeler" ToRole="TabloHareket" />
+  </EntityType>
+  <EntityType Name="TabloYazar">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Detay" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TabloKitap" Relationship="Self.FK_TabloKitap_TabloYazar" FromRole="TabloYazar" ToRole="TabloKitap" />
+  </EntityType>
+  <Association Name="FK_TabloCezalar_TabloHareket">
+    <End Role="TabloHareket" Type="Self.TabloHareket" Multiplicity="0..1" />
+    <End Role="TabloCezalar" Type="Self.TabloCezalar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TabloHareket">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TabloCezalar">
+        <PropertyRef Name="Hareket" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TabloCezalar_TabloUyeler">
+    <End Role="TabloUyeler" Type="Self.TabloUyeler" Multiplicity="0..1" />
+    <End Role="TabloCezalar" Type="Self.TabloCezalar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TabloUyeler">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TabloCezalar">
+        <PropertyRef Name="Uye" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TabloHareket_TabloKitap">
+    <End Role="TabloKitap" Type="Self.TabloKitap" Multiplicity="0..1" />
+    <End Role="TabloHareket" Type="Self.TabloHareket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TabloKitap">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TabloHareket">
+        <PropertyRef Name="Kitap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TabloHareket_TabloUyeler">
+    <End Role="TabloUyeler" Type="Self.TabloUyeler" Multiplicity="0..1" />
+    <End Role="TabloHareket" Type="Self.TabloHareket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TabloUyeler">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TabloHareket">
+        <PropertyRef Name="Uye" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TabloKitap_TabloKategori">
+    <End Role="TabloKategori" Type="Self.TabloKategori" Multiplicity="0..1" />
+    <End Role="TabloKitap" Type="Self.TabloKitap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TabloKategori">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TabloKitap">
+        <PropertyRef Name="Kategori" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TabloKitap_TabloYazar">
+    <End Role="TabloYazar" Type="Self.TabloYazar" Multiplicity="0..1" />
+    <End Role="TabloKitap" Type="Self.TabloKitap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TabloYazar">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TabloKitap">
+        <PropertyRef Name="Yazar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBKUTUPHANEEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TabloCezalar" EntityType="Self.TabloCezalar" />
+    <EntitySet Name="TabloHareket" EntityType="Self.TabloHareket" />
+    <EntitySet Name="TabloKasa" EntityType="Self.TabloKasa" />
+    <EntitySet Name="TabloKategori" EntityType="Self.TabloKategori" />
+    <EntitySet Name="TabloKitap" EntityType="Self.TabloKitap" />
+    <EntitySet Name="TabloPersonel" EntityType="Self.TabloPersonel" />
+    <EntitySet Name="TabloUyeler" EntityType="Self.TabloUyeler" />
+    <EntitySet Name="TabloYazar" EntityType="Self.TabloYazar" />
+    <AssociationSet Name="FK_TabloCezalar_TabloHareket" Association="Self.FK_TabloCezalar_TabloHareket">
+      <End Role="TabloHareket" EntitySet="TabloHareket" />
+      <End Role="TabloCezalar" EntitySet="TabloCezalar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TabloCezalar_TabloUyeler" Association="Self.FK_TabloCezalar_TabloUyeler">
+      <End Role="TabloUyeler" EntitySet="TabloUyeler" />
+      <End Role="TabloCezalar" EntitySet="TabloCezalar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TabloHareket_TabloKitap" Association="Self.FK_TabloHareket_TabloKitap">
+      <End Role="TabloKitap" EntitySet="TabloKitap" />
+      <End Role="TabloHareket" EntitySet="TabloHareket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TabloHareket_TabloUyeler" Association="Self.FK_TabloHareket_TabloUyeler">
+      <End Role="TabloUyeler" EntitySet="TabloUyeler" />
+      <End Role="TabloHareket" EntitySet="TabloHareket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TabloKitap_TabloKategori" Association="Self.FK_TabloKitap_TabloKategori">
+      <End Role="TabloKategori" EntitySet="TabloKategori" />
+      <End Role="TabloKitap" EntitySet="TabloKitap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TabloKitap_TabloYazar" Association="Self.FK_TabloKitap_TabloYazar">
+      <End Role="TabloYazar" EntitySet="TabloYazar" />
+      <End Role="TabloKitap" EntitySet="TabloKitap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TabloHareket_TabloPersonel" Association="DBKUTUPHANEModel.FK_TabloHareket_TabloPersonel">
+      <End Role="TabloPersonel" EntitySet="TabloPersonel" />
+      <End Role="TabloHareket" EntitySet="TabloHareket" />
+    </AssociationSet>
+    <EntitySet Name="TabloHakkımızda" EntityType="DBKUTUPHANEModel.TabloHakkımızda" />
+    <EntitySet Name="Tabloİletisim" EntityType="DBKUTUPHANEModel.Tabloİletisim" />
+    <EntitySet Name="TabloMesajlar" EntityType="DBKUTUPHANEModel.TabloMesajlar" />
+    <EntitySet Name="TabloDuyuru" EntityType="DBKUTUPHANEModel.TabloDuyuru" />
+  </EntityContainer>
+  <Association Name="FK_TabloHareket_TabloPersonel">
+    <End Type="DBKUTUPHANEModel.TabloPersonel" Role="TabloPersonel" Multiplicity="0..1" />
+    <End Type="DBKUTUPHANEModel.TabloHareket" Role="TabloHareket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TabloPersonel">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TabloHareket">
+        <PropertyRef Name="Personel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TabloHakkımızda">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Tabloİletisim">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MailAdresi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Konu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Mesaj" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TabloMesajlar">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Alici" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Konu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Icerik" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Tarih" Type="DateTime" Precision="0" />
+    <Property Name="Gonderen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TabloDuyuru">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DuyuruKategori" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DuyuruIcerik" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="DuyuruTarih" Type="DateTime" Precision="3" />
+  </EntityType>
+</Schema>

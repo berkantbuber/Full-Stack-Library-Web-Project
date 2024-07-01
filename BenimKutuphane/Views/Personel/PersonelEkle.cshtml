@@ -1,0 +1,18 @@
+﻿@model BenimKutuphane.Models.Entity.TabloPersonel
+@{
+    ViewBag.Title = "PersonelEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div style="margin-top:15px">
+        <label>Personel Adı Soyadı</label>
+        @*<input type="text" class="form-control" name="PersonelAdSoyad" />*@
+        @Html.TextBoxFor(x => x.PersonelAdSoyad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.PersonelAdSoyad, "", new { @style = "color:forestgreen" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Personel Ekle</button>
+    </div>
+</form>
+

@@ -1,0 +1,26 @@
+﻿@using BenimKutuphane.Models.Entity
+@model List<TabloHareket>
+@{
+    ViewBag.Title = "UyeKitapGecmisi";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Üye : @ViewBag.u1</h2>
+<br />
+<table class="table table-hover">
+    <tr>
+        <th>Kitap Adı</th>
+        <th>Veren Personel</th>
+        <th>Alış Tarihi</th>
+        <th>İade Tarihi</th>
+    </tr>
+    @foreach(var x in Model)
+            {
+                <tr>
+                    <td>@x.TabloKitap.Ad</td>
+                    <td>@x.TabloPersonel.PersonelAdSoyad</td>
+                    <td>@Convert.ToDateTime(x.AlisTarihi).ToString("dd/MM/yyyy")</td>
+                    <td>@Convert.ToDateTime(x.IadeTarih).ToString("dd/MM/yyyy")</td>
+                </tr>
+            }
+</table>

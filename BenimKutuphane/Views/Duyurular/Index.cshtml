@@ -1,0 +1,29 @@
+﻿@using BenimKutuphane.Models.Entity
+@model List<TabloDuyuru>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Duyurular</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Duyuru No</th>
+        <th>Kategori</th>
+        <th>Tarih</th>
+        <th>Sil</th>
+        <th>İçerik</th>
+    </tr>
+    @foreach (var dyr in Model)
+    {
+        <tr>
+            <td>@dyr.ID</td>
+            <td>@dyr.DuyuruKategori</td>
+            <td>@Convert.ToDateTime(dyr.DuyuruTarih).ToString("dd/MM/yyyy")</td>
+            <td><a href="/Duyurular/DuyuruSil/@dyr.ID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Duyurular/DuyuruDetay/@dyr.ID" class="btn btn-warning">Detaylar</a></td>
+        </tr>
+    }
+</table>
+<a href="/Duyurular/YeniDuyuru/" class="btn btn-primary">Yeni Duyuru Ekle</a>

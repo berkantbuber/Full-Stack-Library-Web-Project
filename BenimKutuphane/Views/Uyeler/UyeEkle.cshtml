@@ -1,0 +1,43 @@
+﻿@model BenimKutuphane.Models.Entity.TabloUyeler
+@{
+    ViewBag.Title = "UyeEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div style="margin-top:15px">
+        <label>Üye Adı</label>
+        @*<input type="text" class="form-control" name="PersonelAdSoyad" />*@
+        @Html.TextBoxFor(u => u.Ad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Ad, "", new { @style = "color:forestgreen" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Üye Soyadı</label>
+        @Html.TextBoxFor(u => u.Soyad, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Mail Adresi</label>
+        @Html.TextBoxFor(u => u.Mail, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Kullanıcı Adı</label>
+        @Html.TextBoxFor(u => u.KullaniciAdi, new { @class = "form-control" })      
+    </div>
+    <div style="margin-top:15px">
+        <label>Şifre</label>
+        @Html.TextBoxFor(u => u.Sifre, new { @class = "form-control" })
+        @Html.ValidationMessageFor(u => u.Sifre, "", new { @style = "color:forestgreen" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Fotoğraf URL</label>
+        @Html.TextBoxFor(u => u.Fotograf, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Telefon</label>
+        @Html.TextBoxFor(u => u.Telefon, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Üye Ekle</button>
+    </div>
+</form>
+

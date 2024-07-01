@@ -1,0 +1,80 @@
+﻿
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 240px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            padding-top: 16px;
+        }
+
+            .sidebar a {
+                padding: 10px 14px 10px 10px;
+                text-decoration: none;
+                font-size: 18px;
+                color: white;
+                display: block;
+            }
+
+                .sidebar a:hover {
+                    color: brown;
+                }
+
+        .main {
+            margin-left: 240px; /* Same as the width of the sidenav */
+            padding: 0px 10px;
+        }
+
+        @@media screen and (max-height: 450px) {
+            .sidebar {
+                padding-top: 15px;
+            }
+
+                .sidebar a {
+                    font-size: 18px;
+                }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        @*<a href="#">&nbsp; Ana Sayfa</a>*@
+        <a href="/Kategori/Index/">&nbsp; Kategoriler</a>
+        <a href="/Kitap/Index/">&nbsp; Kitaplar</a>
+        <a href="/Yazar/Index/">&nbsp; Yazarlar</a>
+        <a href="/Uyeler/Index/">&nbsp; Üyeler</a>
+        <a href="/Personel/Index/">&nbsp; Personeller</a>
+        <a href="/OduncKitap/OduncVer/">&nbsp; Ödünç Kitap Ver</a>
+        <a href="/OduncKitap/Index/">&nbsp; Ödünç Kitap Al</a>
+        <a href="/Islemler/Index/">&nbsp; İşlemler</a>
+        <a href="/Vitrin/Index/">&nbsp; Vitrin</a>
+        <a href="/Duyurular/Index/">&nbsp; Duyurular</a>
+        <a href="#">&nbsp; Ayarlar</a>
+        <a href="#">&nbsp; Yardım</a>
+        <a href="/Panelim/LogOut/">&nbsp; Çıkış</a>
+    </div>
+
+    <div class="main">
+        @RenderBody()
+    </div>
+
+</body>
+</html>
